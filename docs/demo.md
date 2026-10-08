@@ -1,18 +1,18 @@
-# Demo walkthrough
+# Using MiWu
 
 [Back to overview](../README.md)
 
 **Demo:** https://miwu-ai-store.myshopify.com/
 
-An actual Shopify development store with a cloud-backed assistant. A storefront access gate or cloud model quota may affect access. No password, API key, merchant credentials or admin login is published. When access is gated, arrange an author-led walkthrough; the recorded screenshot is available without authentication.
+An actual Shopify development store with a cloud-backed assistant. A storefront access gate or cloud model quota may affect access. No password, API key, merchant credentials or admin login is published. If store access is gated, the recorded examples below remain available without authentication.
 
-## A three-minute interview flow
+## Start a conversation
 
 1. Open the store and click **Ask MiWu** in the compact homepage entry or floating launcher.
 2. Ask `Help me find a snowboard`. Inspect returned real images, product names and USD snapshot prices.
-3. Ask `Tell me more about the second product`. Explain session-scoped product reference resolution.
+3. Ask `Tell me more about the second product`. Use a previous result to request more details.
 4. Try a Chinese constraint request: `我想买蓝色滑雪板，预算不超过 750 美元；无法确认的条件请说明。` Inspect whether missing color evidence is explicitly disclosed. Do not treat returned alternatives as proven cheapest products.
-5. Try `想买 The Complete Snowboard 滑雪板`. Explain bilingual input in an English UI.
+5. Try `想买 The Complete Snowboard 滑雪板`. Use Chinese input in the English interface.
 6. Open **View product** and check the storefront details. The product page is authoritative for current price and availability.
 
 These are demonstration prompts, not guaranteed exact responses. Results depend on catalog contents and model decisions. Reference-resolution accuracy has known limitations documented in the evaluation.
@@ -34,5 +34,4 @@ On 2026-10-08, the user requested a comparison of Complete Snowboard and Collect
 - This screenshot comes from the actual store, not a UI mockup. The sidebar is the current accepted design recorded on 2026-10-03.
 - The screenshot shows Complete Snowboard at 699.95 USD and Hydrogen at 600.00 USD at capture time. These are historical snapshot prices, not offers.
 - Chinese queries and comparison have historical integration acceptance records. The newer live comparison observation above limits what should be claimed about current comparison completion. Neither screenshot proves every feature or an exhaustive multilingual benchmark.
-- The large full-screen shopping workspace was rejected after user feedback and removed. Its screenshots are intentionally excluded from this showcase to avoid implying it is current.
-- This showcase does not include a runnable clone, backend setup command or public administrative API.
+- This repository does not include a runnable clone, backend setup command or public administrative API.
