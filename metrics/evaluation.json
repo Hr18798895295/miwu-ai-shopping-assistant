@@ -1,0 +1,174 @@
+{
+  "curated_on": "2026-10-08",
+  "kind": "Historical experiment aggregates, not a new run",
+  "retrieval": {
+    "dataset": "Multi-CPR E-commerce",
+    "corpus_size": 1002822,
+    "dev_query_count": 1000,
+    "scope": "Local CPU offline evaluation; not the Shopify cloud catalog",
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "reranker_model": "BAAI/bge-reranker-base",
+    "reranker_candidate_pool": 20,
+    "results": [
+      {
+        "method": "BM25",
+        "recall_at_10": 0.287,
+        "mrr_at_10": 0.16119285714285714,
+        "recall_at_100": 0.512,
+        "recall_at_1000": 0.715
+      },
+      {
+        "method": "Dense (raw query)",
+        "recall_at_10": 0.485,
+        "mrr_at_10": 0.292127380952381,
+        "recall_at_100": 0.757,
+        "recall_at_1000": 0.901
+      },
+      {
+        "method": "Hybrid",
+        "recall_at_10": 0.492,
+        "mrr_at_10": 0.297856746031746,
+        "recall_at_100": 0.765,
+        "recall_at_1000": 0.909
+      },
+      {
+        "method": "Hybrid + reranker",
+        "recall_at_10": 0.501,
+        "mrr_at_10": 0.31456388888888887,
+        "recall_at_100": null,
+        "recall_at_1000": null
+      }
+    ]
+  },
+  "intent": {
+    "cases": 50,
+    "metrics": {
+      "schema_success_rate": 100.0,
+      "json_pydantic_parse_success_rate": 100.0,
+      "product_type_accuracy": 74.42,
+      "brand_extraction_accuracy": 85.71,
+      "must_have_coverage": 65.22,
+      "exclude_extraction_accuracy": 50.0,
+      "non_shopping_query_recognition_rate": 100.0,
+      "no_extra_guess_rate": 34.0
+    },
+    "scope": "Historical structured intent experiment; not the deployed Agent entrypoint"
+  },
+  "rag": {
+    "cases": 30,
+    "completed": 24,
+    "failed": 6,
+    "metrics": {
+      "pipeline_success_rate": 80.0,
+      "retrieval_success_rate": 52.17,
+      "evidence_citation_rate": 50.0,
+      "invalid_pid_rate": 0.0,
+      "unsupported_product_rate": 0.0,
+      "non_shopping_routing_accuracy": 100.0,
+      "empty_retrieval_rate": 0.0,
+      "shopping_misrouting_rate": 21.74,
+      "average_products_returned": 2.61
+    },
+    "raw_model_metrics": {
+      "evidence_citation_rate": 91.67,
+      "invalid_pid_rate": 10.0,
+      "unsupported_product_rate": 8.47,
+      "blocked_answer_count": 5
+    },
+    "scope": "Historical intent-first pipeline; not current cloud accuracy"
+  },
+  "agent": {
+    "cases": 40,
+    "model": "qwen3:4b-instruct",
+    "metrics": {
+      "agent_execution_success_rate": 100.0,
+      "tool_selection_accuracy": 82.5,
+      "tool_argument_validity": 100.0,
+      "per_tool_accuracy": {
+        "search_products": 88.89,
+        "get_product_detail": 54.55,
+        "compare_products": 100.0
+      },
+      "reference_resolution_accuracy": 75.0,
+      "invalid_pid_rate": 0.0,
+      "unsupported_product_rate": 0.0,
+      "citation_count": 69,
+      "pid_mention_count": 69,
+      "unsupported_fact_rate": 0.0,
+      "nonshopping_tool_avoidance_accuracy": 100.0,
+      "average_tool_calls": 0.7,
+      "average_requested_tool_calls": 0.7,
+      "average_llm_calls": 1.7
+    },
+    "raw_model_metrics": {
+      "invalid_pid_rate": 2.74,
+      "unsupported_product_rate": 3.33,
+      "citation_count": 73,
+      "pid_mention_count": 90,
+      "unsupported_fact_rate": 0.0,
+      "cases_with_detected_unsupported_facts": 3
+    },
+    "confusion_counts": {
+      "correct_tool": 28,
+      "wrong_tool": 0,
+      "unnecessary_tool": 0,
+      "missing_tool": 7,
+      "correct_no_tool": 5
+    },
+    "tool_decision_correct": 33,
+    "reference_case_count": 16,
+    "reference_correct_count": 12,
+    "blocked_final_answers": 12,
+    "latency_ms": {
+      "mean": 22933.15,
+      "p50": 22657.4,
+      "p95": 52779.86
+    },
+    "scope": "40 local CPU target turns; setup searches excluded from latency; aggregate heuristic checks are not a universal factuality score"
+  },
+  "shopify": {
+    "last_end_to_end_verification": "2026-10-03",
+    "products_read": 17,
+    "products_indexed": 15,
+    "verification_kind": "Small-catalog integration acceptance, not a statistical quality benchmark",
+    "cloud_chat_model_last_verified": "qwen3.8-flash",
+    "regression_test_snapshot": {
+      "run": 61,
+      "passed": 59,
+      "skipped": 2,
+      "date": "2026-10-03"
+    },
+    "latest_sidebar_acceptance": "2026-10-03"
+  },
+  "provenance": [
+    {
+      "experiment": "bm25",
+      "original_aggregate_sha256": "41cf2abe654ba0eb1978184ef9c9c6dd8bafcecb1a2322f2402787c8e2b878eb"
+    },
+    {
+      "experiment": "dense",
+      "original_aggregate_sha256": "1948a27042824c968c272725c6182ea7d934b82f5efe1f1a63161ab5c44c6c06"
+    },
+    {
+      "experiment": "hybrid",
+      "original_aggregate_sha256": "f0c77ddd89758f3d089c98f2f933f1bb8812696c5b4a0633cc0cd9856900fe59"
+    },
+    {
+      "experiment": "reranker",
+      "original_aggregate_sha256": "3327d0154e62de5df486305b62d710ad0a7eada350ef2cd0ddd392a666cf1074"
+    },
+    {
+      "experiment": "intent",
+      "original_aggregate_sha256": "d5c170d01d9e094185f871e0bcd5302c297603c5b526d7a5724aa719819eb15d"
+    },
+    {
+      "experiment": "rag",
+      "original_aggregate_sha256": "740ea6e849b9c4a147bdce216bc512e41c886d0fcb1ce05fddfd3a16e4c9ae0c"
+    },
+    {
+      "experiment": "agent",
+      "original_aggregate_sha256": "fcb9e07f5783594f4cdd439d085728fe27d0f53b68cbb3a2813c10b118e2b347"
+    }
+  ],
+  "reproducibility": "Selected numeric aggregates are public. Original implementation, prompts, test cases, logs and data artifacts remain private. Hashes identify the original summaries, not independent reproducibility."
+}

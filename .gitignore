@@ -1,0 +1,22 @@
+# Explicit allowlist; prevents accidental copying of the private application.
+/*
+!/.gitignore
+!/README.md
+!/README.zh-CN.md
+!/NOTICE.md
+!/assets/
+!/docs/
+!/metrics/
+/assets/*
+!/assets/architecture.svg
+!/assets/retrieval-results.svg
+!/assets/shopify-sidebar.jpg
+!/assets/bilingual-evidence-boundary.png
+/docs/*
+!/docs/architecture.md
+!/docs/evaluation.md
+!/docs/demo.md
+!/docs/engineering.md
+/metrics/*
+!/metrics/evaluation.json
+!/metrics/retrieval.csv
